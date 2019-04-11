@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.d1{
+				width: 200px;
+				height: 100px;
+				background:black;
+				
+transition: width 2s ease, background 1s linear;
+/*设置过渡的属性*/
+transition-property: width;
+/*过渡花费时间*/
+transition-duration: 2s;
+/*过渡的延迟时间*/
+transition-delay: 0s;
+/*过渡的速度变化*/
+transition-timing-function: linear;
+			}
+			.d1:hover{
+				width: 900px;
+				background: pink;
+			}
+		
+		
+			body{
+				perspective: 1000px;
+			}
+			.parent{
+				width: 200px;
+				height: 200px;
+				margin: 100px auto;
+				position: relative;	
+				
+				
+				transform-style: preserve-3d;
+				
+				transform: rotate3d(1,1,1,360deg);
+				transition: all 2s ;
+				
+				animation: donghua1 5s infinite;
+			}
+			
+			.parent:hover{
+				transform: rotate3d(1,1,1,60deg) scale(2);
+			}
+			
+			@keyframes donghua1{
+				from{
+					transform: rotate3d(1,1,1,0deg);
+				}
+				to{
+					transform: rotate3d(1,1,1,360deg);
+				}
+			}
+			
+			
+			.parent .child{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0.95;
+				
+				transition: all 2s;
+			}
+			
+			.front{
+				background: url(img/1.jpg);
+				background-size: auto 100%;
+				background-position:center;
+				
+				transform: translateZ(100px);
+				
+				animation: donghua2 10s infinite;
+			}
+			.back{
+				background: url(img/4.jpg);
+				background-size: auto 100%;
+				background-position:center;
+				transform: translateZ(-100px);
+			}
+			
+			.parent:hover .back{
+				transform: translateZ(-200px);
+			}
+			.left{
+				background: url(img/5.jpg);
+				background-size: auto 100%;
+				background-position:center;
+				transform: rotateY(90deg)  translateZ(100px);
+				
+			}
+			.parent:hover .left{
+				transform: rotateY(90deg)  translateZ(200px);
+			}
+			
+			
+			.right{
+				background: url(img/2.jpg);
+				background-size: auto 100%;
+				background-position:center;
+				transform: rotateY(-90deg)  translateZ(100px);
+				
+			}
+			.parent:hover .right{
+				transform: rotateY(-90deg)  translateZ(200px);
+			}
+			
+			.top{
+				background: url(img/3.jpg);
+				background-size: auto 100%;
+				background-position:center;
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			
+			.parent:hover .top{
+				transform: rotateX(90deg)  translateZ(200px);
+			}
+			.bottom{
+				background: url(img/6.jpg);
+				background-size: auto 100%;
+				background-position:center;
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+			.parent:hover .bottom{
+				transform: rotateX(-90deg)  translateZ(200px);
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="d1"><h1>BLACKPINK<br/>Lisa</h1></div>
+		<div class="parent">
+			<div class="child front"></div>
+			<div class="child back"></div>
+			<div class="child left"></div>
+			<div class="child right"></div>
+			<div class="child bottom"></div>
+			<div class="child top"></div>
+		</div>
+	</body>
+</html>
